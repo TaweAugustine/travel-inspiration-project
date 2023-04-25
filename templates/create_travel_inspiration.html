@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Add Travel Inspiration
+{% endblock %}
+
+  {% block content %}
+
+  <h1 class=" p-5 text-center border-b-2">Rechercher un Travel Inspiration en fonction entrées</h1>
+  <div class="container">
+    
+   <div class="row">
+    
+    <div class="col-sm-12 col-md-8 mx-auto" >
+        <form action="" method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+            {{form.as_p}}
+         <button type="submit" class ="btn btn-primary"> Valider </button>
+        </form>
+    </div>
+
+  </div>
+
+  </div>
+
+   {% endblock %}

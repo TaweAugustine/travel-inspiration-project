@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+  {% block content %}
+
+  <h1 class=" p-5">Bienvenue notre plateforme  de Voyage Inspiration !! Nous somme là pour votre satisfaction</h1>
+  <div class="container">
+
+   <div class="row gy-2">
+    {% for travel in travels %}
+    <div class="col col-md-3">
+      
+      <div class="card shadow border-1 border-primary img-fluid mb-2" style="width: 18rem; height:400px; object-fit:cover;">
+        <div class="card-body">
+          <h5 class="card-title fw-bolder"> Budget : <strong>{{travel.budget}}</strong></h5>
+          <p class="card-text text-center mt-3"> Date Aller : {{travel.travel_date_start}}</p>
+          <p class="card-text text-center mt-3"> Date de Retour : {{travel.travel_date_end}} </p>
+
+          <a href="#" class="btn btn-primary fs-6">Add to Favoris</a>
+          <a href="#" class="btn btn-dark fs-6">Details</a>
+
+        </div>
+      </div>
+
+    </div>
+
+    {% endfor %}
+  </div>
+  
+  </div>
+
+
+ <!-- BOOTSTRAP AND DJANGO PAGINATION-->
+ <div class="row">
+  <div class="col">
+<nav aria-label="...">
+  <ul class="pagination">
+    {% if travels.has_previous %}
+    <li class="page-item">
+      <a class="page-link"  href="?page={{ travels.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a>
+    </li>
+    {% else %}
+      <li class="page-item disabled">
+      <a class="page-link"  href="#" tabindex="1" aria-disabled="true"><i class="fa fa-angle-double-left"></i></a>
+    </li>
+    {% endif %}
+
+  </ul>
+</nav>
+</div>
+</div>
+   {% endblock %}
